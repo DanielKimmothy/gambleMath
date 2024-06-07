@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Gamble</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <h1 id="Title">Gamble</h1>
+    <h3 id="wallet.">You have: $1000</h3>
+    <hr>
+    <br>
+    <br>
+    <p class="intro">The game is simple, you need to gamble. There will be questions on the side, for you to</p>
+    <p class="intro">answer, the value of the variable or simplified fractions will be the chances of you winning</p>
+    <p class="intro">so you can choose accordingly. IF you get the correct answer for the answer of the question,</p>
+    <p class="intro">it will give you a hint on getting the right answer. Still though, its pretty hard.</p>
+    <p class="intro">After you failed, or won, press retry to go again.</p>
+    <p class="intro">PS: For the hints, you might get a negative number or a number thats not in the choices for the</p>
+    <p>ranges, for example, -1 < n < 13. With this, don't worry, your choice is still within the selection given to you.</p>
+
+    <br>
+
+    <p class="intro">You need to press the number buttons, according to the number that you are guessing.</p>
+    <p class="intro">You <b>must</b> use the pay first before playing.</p>
+    <br>
+
+
+    <div id="div_content">
+    
+
+    
+
+    <input id="bet" type="text" placeholder="Place your bets." class="text_inputs"> <button id="payment" class="buttons">Submit</button>
+
+    
+    <br>
+    <br>
+    <button id="begin_btn" class="buttons">Begin</button>
+
+    <p id="everything"></p>
+    
+    <p id="question">Your chances are..</p>
+    <input id="chances_input" placeholder="Answer in fractions" class="text_inputs">
+    <button id="submit_btn" placeholer="chance" class="buttons">Submit chance</button>
+    <p id="hint">The hints for <b>one</b> of the numbers will show here.</p>
+
+    <br>
+
+    <button id="button1" class="buttons" class="number_buttons">1</button>
+    <button id="button2" class="buttons" class="number_buttons">2</button>
+    <button id="button3" class="buttons" class="number_buttons">3</button>
+    <button id="button4" class="buttons" class="number_buttons">4</button>
+    <button id="button5" class="buttons" class="number_buttons">5</button>
+    <button id="button6" class="buttons" class="number_buttons">6</button>
+    <button id="button7" class="buttons" class="number_buttons">7</button>
+    <button id="button8" class="buttons" class="number_buttons">8</button>
+    <button id="button9" class="buttons" class="number_buttons">9</button>
+    <button id="button10" class="buttons" class="number_buttons">10</button>
+    <button id="button11" class="buttons" class="number_buttons">11</button>
+    <button id="button12" class="buttons" class="number_buttons">12</button>
+
+    <p id="result">Result: </p>
+    <p id="profit"></p>
+    <button id="retry_btn" class="buttons">Retry</button>
+    
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
