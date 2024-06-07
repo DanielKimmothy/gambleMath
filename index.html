@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="body">
-    <h1 id="Title">Gamble</h1>
+    <div class="casino">
+    <h1 id="Title">Mathemachinko</h1>
     <h3 id="wallet.">You have: $1000</h3>
     <hr>
     <br>
@@ -19,7 +20,8 @@
     <p class="intro">it will give you a hint on getting the right answer. Still though, its pretty hard.</p>
     <p class="intro">After you failed, or won, press retry to go again.</p>
     <p class="intro">PS: For the hints, you might get a negative number or a number thats not in the choices for the</p>
-    <p>ranges, for example, -1 < n < 13. With this, don't worry, your choice is still within the selection given to you.</p>
+    <p class="intro">ranges, for example, -1 < n < 13. With this, don't worry, your choice is still within the selection given to you.</p>
+    <p>Also, the * sign is representing multiplication.</p>
 
     <br>
 
@@ -27,13 +29,13 @@
     <p class="intro">You <b>must</b> use the pay first before playing.</p>
     <br>
 
-
-    <div id="div_content">
+    
     
 
     
 
     <input id="bet" type="text" placeholder="Place your bets." class="text_inputs"> <button id="payment" class="buttons">Submit</button>
+    <h4 id="error"></h4>
 
     
     <br>
@@ -65,9 +67,47 @@
     <p id="result">Result: </p>
     <p id="profit"></p>
     <button id="retry_btn" class="buttons">Retry</button>
-    
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <!----
+    <h1 id="shop" class="shop">Shop</h1>
+    <br>
+    <div class="shop">
+    <p class="shop">Welcome to the shop, this is where you can use the money that you made into <del>imaginary</del> <b>REEAALL</b> items!!</p>
 
+    
+    <div id="lambo">
+        <label>Lamborghini</label>
+        <br>
+        <image src="images/lambo.png"></image>
+        <br>
+        <label class="description">A car. Thats it. It has no use in the casino though.</label>
+        <br>
+        <button id="lambo_purchase" class="buttons">Purchase</button>
+    </div>
+    <br>
+    <br>
+
+    <div id="insurance">
+        <label>Insurance</label>
+        <br>
+        <image src="images/insurance.png"></image>
+        <br>
+        <label class="description">It will decrease the amount of money you lose each round.</label>
+        <br>
+        <label> The more you have, the more is decreased.</label>
+        <br>
+        <label id="insurance_cost">$2000</label>
+        <button id="insurance_purchase" class="buttons">Purchase</button>
+    </div>
+    </div>
+-->
     <script src="script.js"></script>
 </body>
 </html>

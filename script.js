@@ -18,6 +18,9 @@ let number12
 let hint
 let hint1
 
+let insurance_cost = 200;
+let insurance_paid = false
+
 let result = false // True is win, false is lose.
 const answer_1 = "1/4"
 const answer_2 = "1/2"
@@ -1901,10 +1904,18 @@ document.getElementById("payment").onclick = function() {
     bet = document.getElementById("bet").value
     bet = Number(bet)
     console.log(bet)
+
+    if (bet > money) {
+        document.getElementById("error").innerHTML = "Invalid payment - you do not have enough money."
+    }
+    else if (bet < money) {
+        document.getElementById("error").innerHTML = " "
+
+    }
 }
 
 document.getElementById("begin_btn").onclick = function() {
-    let question = Math.floor(Math.random() * 7 + 1)
+    let question = Math.floor(Math.random() * 14 + 1)
     number = Math.floor(Math.random() * 12 + 1)
     console.log("Question number: " + question)
 
@@ -1958,8 +1969,6 @@ document.getElementById("begin_btn").onclick = function() {
     }
 
     if (question == 2){ // question 2
-        let number = Math.floor(Math.random() * 12 + 1)
-        number = Number(number)
 
         console.log("the number is " + number)
         document.getElementById("question").innerHTML = "Your chance is x/y: 3x + 4 = 13, y(5 + x) - 5 = 43" // answer is 1/2
@@ -2018,8 +2027,6 @@ document.getElementById("begin_btn").onclick = function() {
     }
 
     if (question == 3){ // question 3
-        let number = Math.floor(Math.random() * 12 + 1)
-        number = Number(number)
 
         console.log("the number is " + number)
         document.getElementById("question").innerHTML = "Your chance is x: x^2 + 15/18 = 1" // answer is 1/3
@@ -2036,7 +2043,7 @@ document.getElementById("begin_btn").onclick = function() {
         }
         else{
             hint = number + hint_subtract
-            hint1 = number - hint_add
+            hint1 = number - hint_subtract
 
             number1 = number - 3
             number2 = number - 4
@@ -2075,11 +2082,9 @@ document.getElementById("begin_btn").onclick = function() {
     }
 
     if (question == 4){ // question 4
-        let number = Math.floor(Math.random() * 12 + 1)
-        number = Number(number)
 
         console.log("the number is " + number)
-        document.getElementById("question").innerHTML = "Your chance is: a(x - 1). find x if 2x + 4 = 7, and a if 64/192 = a" // answer is 1/6
+        document.getElementById("question").innerHTML = "Your chance is: ax. find x if 2x + 4 = 7, and a if 64/192 = a" // answer is 1/6
         
         if (number < 8){
             hint = number + hint_add
@@ -2088,7 +2093,7 @@ document.getElementById("begin_btn").onclick = function() {
         }
         else{
             hint = number + hint_subtract
-            hint1 = number - hint_add
+            hint1 = number - hint_subtract
             
             number1 = number - 1
             number2 = number - 4
@@ -2120,7 +2125,7 @@ document.getElementById("begin_btn").onclick = function() {
 
         //number = Number(number)
         
-        document.getElementById("question").innerHTML = "Your chance is: a/1 / b/6, 1/2 times a = 1, b/15 = 4/60" // answer is 1/12
+        document.getElementById("question").innerHTML = "Your chance is: a/1 / b/6, 1/2 * a = 1, b/15 = 4/60" // answer is 1/12
         
         if (number < 8){
             hint = number + hint_add
@@ -2131,7 +2136,7 @@ document.getElementById("begin_btn").onclick = function() {
         
         else{
             hint = number + hint_subtract
-            hint1 = number - hint_add
+            hint1 = number - hint_subtract
             //number1 = number - 3
             //number2 = number - 4
         }
@@ -2172,7 +2177,7 @@ document.getElementById("begin_btn").onclick = function() {
         }
         else{
             hint = number + hint_subtract
-            hint1 = number - hint_add
+            hint1 = number - hint_subtract
 
             number1 = number - 6
             number2 = number - 4
@@ -2199,9 +2204,8 @@ document.getElementById("begin_btn").onclick = function() {
 
     
     }
-    if (question == 7){ // question 2
-        let number = Math.floor(Math.random() * 12 + 1)
-        number = Number(number)
+
+    if (question == 7){ // question 7
 
         console.log("the number is " + number)
         document.getElementById("question").innerHTML = "Your chance is: (13/6 - 2) / (1/3)" // answer is 1/2
@@ -2257,6 +2261,328 @@ document.getElementById("begin_btn").onclick = function() {
         console.log(number +" " + number1+" "+number2+" "+number3+" "+number4+" "+number5+" "+number6)
 
         checkButtons2()
+    }
+
+    if (question == 8){ // question 8
+
+        console.log("the number is " + number)
+        document.getElementById("question").innerHTML = "Your chance is: 1/3(x + 1/2) - 2(1/4 + 3), when x = 2 X 12 1/4 + 1/2" // answer is 1/6
+        
+        if (number < 8){
+            hint = number + hint_add
+            hint1 = number - hint_subtract
+            number1 = number + 3
+        }
+        else{
+            hint = number + hint_subtract
+            hint1 = number - hint_add
+            
+            number1 = number - 1
+            number2 = number - 4
+        }
+
+        document.getElementById("submit_btn").onclick = function(){
+            chance_input = document.getElementById("chances_input").value
+            console.log("submit button pressed")
+            console.log("answer = " + chance_input)
+            
+            if (chance_input == answer_4){
+                console.log(hint)
+                document.getElementById("hint").innerHTML = "One of the numbers are: " + hint1 + " < n < " + hint
+                console.log("correct answer")
+            }
+            else{
+                document.getElementById("hint").innerHTML = "Wrong answer L"
+
+            }
+        }
+        
+        console.log(number+" "+ number1 +" "+number2)
+
+        checkButtons6()
+        
+    }
+
+    if (question == 9) { // question 9
+        document.getElementById("question").innerHTML = "Your chance is: ((1/2) / (1/4)) / ((1/3) / (16/128))" // answer is 1/12
+        
+        if (number < 8){
+            hint = number + hint_add
+            hint1 = number - hint_subtract
+            //number1 = number + 1
+        }
+        
+        
+        else{
+            if (number < 10){
+                hint = number + hint_subtract
+            }
+            else {
+                hint = number + 1
+            }
+            hint1 = number - hint_subtract
+            //number1 = number - 3
+            //number2 = number - 4
+        }
+
+        console.log(number)
+
+        document.getElementById("submit_btn").onclick = function(){
+            chance_input = document.getElementById("chances_input").value
+            console.log("submit button pressed")
+            console.log("answer = " + chance_input)
+            
+            if (chance_input == answer_5){
+                document.getElementById("hint").innerHTML = "One of the numbers are: "+ hint1 +" < n < " + hint
+                console.log("correct answer")
+            }
+            else{
+                document.getElementById("hint").innerHTML = "Wrong answer L"
+            }
+        }
+        
+        
+
+
+        checkButtons12()
+    }
+
+    if (question == 10){ // question 10
+
+        console.log("the number is " + number)
+        document.getElementById("question").innerHTML = "Your chance is: 15/(2/3) * (1/3)/5" // answer is 1/2
+        
+        if (number < 8){
+            hint = number + hint_add
+            hint1 = number - hint_subtract
+            number1 = number + 1
+            number2 = number + 2
+            number3 = number + 3
+            number4 = number + 4
+            number5 = number + 5
+            if (number > 1){
+                number6 = number - 1
+            }
+            else{
+                number6 = number + 1
+            }
+        }
+        else{ // if the nuumber is greater or otherwise equal to 9, this is enacted.
+            if (number > 11){
+                hint = number + 2
+                hint1 = number - hint_subtract
+            }
+            else {
+                hint = number + 1
+                hint1 = number - hint_subtract
+
+            }
+
+            number1 = number - 1 // i wish they didnt notice that they were in order and being just guessing. 
+            number2 = number - 2
+            number3 = number - 3
+            number4 = number - 4
+            number5 = number - 5
+            number6 = number - 6
+        }
+
+        document.getElementById("submit_btn").onclick = function(){
+            chance_input = document.getElementById("chances_input").value
+            console.log("submit button pressed")
+            console.log("answer = " + chance_input)
+            
+            if (chance_input == answer_2){
+                document.getElementById("hint").innerHTML = "" + hint1 +" < n < " + hint
+                console.log("correct answer")
+            }
+            else {
+                document.getElementById("hint").innerHTML = "Wrong answer womp womp!"
+            }
+        }
+
+        console.log(number +" " + number1+" "+number2+" "+number3+" "+number4+" "+number5+" "+number6)
+
+        checkButtons2()
+    }
+
+    if (question == 11){ // question 5
+
+        //number = Number(number)
+        
+        document.getElementById("question").innerHTML = "Your chance is: x / (2 * 6), when x = (8(8/16))/4  " // answer is 1/12
+        
+        if (number < 8){
+            hint = number + hint_add
+            hint1 = number - hint_subtract
+            //number1 = number + 1
+        }
+        
+        
+        else{
+            hint = number + hint_subtract
+            hint1 = number - hint_subtract
+            //number1 = number - 3
+            //number2 = number - 4
+        }
+
+        console.log(number)
+
+        document.getElementById("submit_btn").onclick = function(){
+            chance_input = document.getElementById("chances_input").value
+            console.log("submit button pressed")
+            console.log("answer = " + chance_input)
+            
+            if (chance_input == answer_5){
+                document.getElementById("hint").innerHTML = "One of the numbers are: "+ hint1 +" < n < " + hint
+                console.log("correct answer")
+            }
+            else{
+                document.getElementById("hint").innerHTML = "Wrong answer L"
+            }
+        }
+        
+        
+
+
+        checkButtons12()
+    }
+
+    if (question == 12){ // question 12
+
+        console.log("the number is " + number)
+        document.getElementById("question").innerHTML = "Your chance is x: (50 * 2/100) / (-4/2 + 4)" // answer is 1/3
+        
+        if (number < 8){
+            hint = number + hint_add
+            if (number > 5){hint1 = number - hint_add}
+            else if (number == 1){hint1 = number - 1}
+            else {hint1 = number - 1}
+
+            number1 = number + 1
+            number2 = number + 3
+            number3 = number + 2
+        }
+        else{
+            hint = number + hint_subtract
+            hint1 = number - hint_subtract
+
+            number1 = number - 3
+            number2 = number - 4
+            number3 = number - 6
+            number4 = number - 7
+        }
+
+        document.getElementById("submit_btn").onclick = function(){
+            chance_input = document.getElementById("chances_input").value
+            console.log("submit button pressed")
+            console.log("answer = " + chance_input)
+            
+            if (chance_input == answer_3){
+                document.getElementById("hint").innerHTML = "One of the numbers are:" + hint1 + " < n < " + hint
+                console.log("correct answer")
+            }
+            else{
+                document.getElementById("hint").innerHTML = "Wrong answer L"
+
+            }
+        }
+        
+        console.log(number +" "+ number1+" "+number2+" "+number3)
+        /*
+        document.getElementById("submit_btn").onclick = function(){
+            chance_input = document.getElementById("chances_input").value
+            console.log("submit button pressed")
+            console.log("answer = " + chance_input)
+            
+            if (chance_input == answer_2){
+                document.getElementById("hint").innerHTML = "Hint: 0 < n < " + hint
+                console.log("correct answer")
+            }
+        } */
+        checkButtons3()
+    }
+
+    if (question == 13){ // question 13     
+        
+        console.log("the number is: " + number)
+        document.getElementById("question").innerHTML = "Your chances are: x. Find x: 3(x + 2.5) - 2(x - 1.75)" // answer is 1/4
+
+        if (number < 8){
+            hint = number + hint_add
+            hint1 = number - hint_subtract
+
+            number1 = number + 1
+            number2 = number + 3
+        }
+        else{
+            hint = number - 3
+            hint1 = number - hint_add
+
+            number1 = number - 1
+            number2 = number - 3
+        }
+        
+        
+        document.getElementById("submit_btn").onclick = function(){
+            chance_input = document.getElementById("chances_input").value
+            console.log("submit button pressed")
+            console.log("answer = " + chance_input)
+            
+            if (chance_input == answer_1){
+                document.getElementById("hint").innerHTML = "Hint: " +  hint1 +  " < n < " + hint
+                console.log("correct answer")
+            }
+            else {
+                document.getElementById("hint").innerHTML = "WRONG ANSWER!"
+            }
+        }
+
+        console.log(number +" " + number1+" "+number2+" "+number3)
+
+        checkButtons4()
+
+
+        
+    }
+
+    if (question == 14){ // question 14
+
+        console.log("the number is " + number)
+        document.getElementById("question").innerHTML = "Your chance is: 2x = 4y when  y = (5 + 7)/144. What is x?" // answer is 1/6
+        
+        if (number < 8){
+            hint = number + hint_add
+            hint1 = number - hint_subtract
+            number1 = number + 3
+        }
+        else{
+            hint = number + hint_subtract
+            hint1 = number - hint_subtract
+            
+            number1 = number - 1
+            number2 = number - 4
+        }
+
+        document.getElementById("submit_btn").onclick = function(){
+            chance_input = document.getElementById("chances_input").value
+            console.log("submit button pressed")
+            console.log("answer = " + chance_input)
+            
+            if (chance_input == answer_4){
+                console.log(hint)
+                document.getElementById("hint").innerHTML = "One of the numbers are: " + hint1 + " < n < " + hint
+                console.log("correct answer")
+            }
+            else{
+                document.getElementById("hint").innerHTML = "Wrong answer L"
+
+            }
+        }
+        
+        console.log(number+" "+ number1 +" "+number2)
+
+        checkButtons6()
+        
     }
 }
 
